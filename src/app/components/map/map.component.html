@@ -1,9 +1,7 @@
-<div id="map">
-    <!-- How to change your own map point
-          1. Go to Google Maps
-          2. Click on your location point
-          3. Click "Share" and choose "Embed map" tab
-          4. Copy only URL and paste it within the src="" field below
-      -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15906.868831637157!2d-74.1114514!3d4.6444476!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b954c7ea505%3A0xd28c94814b1d1633!2sCentro+Comercial+Gran+Estaci%C3%B3n!5e0!3m2!1ses-419!2sco!4v1536092144152" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-  </div>
+<div class="container" id="map">
+    <div id="row">
+        <button (click)="setMapType('terrain')" class="btn btn-primary">Terrain</button>
+        <button (click)="setMapType('roadmap')" class="btn btn-warning">Road Map</button>
+        <div #gmap style="width:100%;height:400px"></div>
+    </div>
+</div>
