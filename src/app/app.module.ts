@@ -7,6 +7,10 @@ import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { APP_BASE_HREF } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +20,10 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule  
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

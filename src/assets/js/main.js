@@ -78,7 +78,7 @@ jQuery(document).ready(function($) {
             $(".pop").fadeOut(300);
         });
 
-
+/*
         $(window).on("scroll", function() {
         
             if($(window).scrollTop() > 100) {
@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
                console.log("salio al scroll mayor 100")
             }
         });
-
+*/
 
 	/************** Mixitup (Filter Projects) *********************/
     	$('.projects-holder').mixitup({
@@ -106,11 +106,13 @@ jQuery(document).ready(function($) {
 //script en index
 $(document).ready(function () {
   // navigation click actions 
+  /*Se elimina el desplazamiento de pagina
   $('.scroll-link').on('click', function (event) {
     event.preventDefault();
     var sectionID = $(this).attr("data-id");
     scrollToID('#' + sectionID, 750);
   });
+  */
   // scroll to top action
   $('.scroll-top').on('click', function (event) {
     console.log("entro al scroll-top")
