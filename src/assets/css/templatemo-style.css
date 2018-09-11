@@ -167,7 +167,7 @@ p {
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 	background-color: #f7c552;
 }
-bootstrap.min.css:5
+
 .navbar-toggle {
     position: relative;
     float: right;
@@ -304,7 +304,7 @@ bootstrap.min.css:5
 	padding: 30px 15px 0px 15px;
 }
 
-.filter-categories {;
+.filter-categories {
   margin-top: 60px;
 }
 
@@ -652,9 +652,9 @@ bootstrap.min.css:5
 
 
 footer {
-	margin-top: -6px;
+	/*margin-top: -6px;*/
 	background-color: #373a3c;
-	padding: 50px 0px;
+	padding: 25px 0px;
 }
 footer .logo em {
 	font-style: normal;
