@@ -5,3 +5,27 @@
         </div>
     </div>
 </div>
+
+<div>
+    <form #roboForm="ngForm" (ngSubmit)="onSubmit(roboForm)">
+        <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="infoRoboData.selectedRobo.$key">
+        <div class="form-group">
+            <label>Latitud</label>
+            <input class="form-control" name="latitud" #name="ngModel" [(ngModel)]="infoRoboData.selectedRobo.latitud" placeholder="Latitud de la coordenada"
+                required>
+        </div>
+        <div class="form-group">
+            <label>Longitud</label>
+            <input class="form-control" name="longitud" #position="ngModel" [(ngModel)]="infoRoboData.selectedRobo.longitud" placeholder="Longitud de la coordenada">
+        </div>
+       
+        <div class="form-group">
+            <button class="btn btn-default" type="submit" [disabled]="!roboForm.valid">
+                <i class="fa fa-floppy-o"></i>
+                Submit</button>
+            <button class="btn btn-default" type="button" (click)="resetForm(roboForm)">
+                <i class="fa fa-repeat"></i>
+                Reset</button>
+        </div>
+    </form>
+</div>
