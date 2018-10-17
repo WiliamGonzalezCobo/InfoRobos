@@ -18,14 +18,26 @@
             <label>Longitud</label>
             <input class="form-control" name="longitud" #position="ngModel" [(ngModel)]="infoRoboData.selectedRobo.longitud" placeholder="Longitud de la coordenada">
         </div>
-       
+
+        <div class="form-group">
+            <label>Tipo de robo</label>
+            <select class="form-control form-control-lg" name="keyTipo" #name="ngModel" [(ngModel)]="infoRoboData.selectedRobo.keyTipo">
+                <option *ngFor="let obj of tipoList" [ngValue]="obj.$key">{{obj.descripcion}}</option>
+            </select>
+        </div>
+
+
         <div class="form-group">
             <button class="btn btn-default" type="submit" [disabled]="!roboForm.valid">
                 <i class="fa fa-floppy-o"></i>
-                Submit</button>
+                Enviar</button>
             <button class="btn btn-default" type="button" (click)="resetForm(roboForm)">
                 <i class="fa fa-repeat"></i>
-                Reset</button>
+                Resetear</button>
         </div>
+
+
+
+
     </form>
 </div>

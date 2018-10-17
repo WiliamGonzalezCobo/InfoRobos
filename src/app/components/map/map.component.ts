@@ -3,6 +3,7 @@ import { } from '@types/googlemaps';
 import { InfoRoboDataService } from 'src/app/services/infoRoboData.services';
 import { NgForm } from '@angular/forms'
 import { Robo } from 'src/app/models/robo.model';
+import { Tipo } from 'src/app/models/tipo.model';
 
 @Component({
   selector: 'app-map',
@@ -17,6 +18,7 @@ export class MapComponent implements OnInit{
   currentLong : string;
   marker : google.maps.Marker;
   roboList: Robo [];
+  tipoList: Tipo [];
 
   constructor(public infoRoboData : InfoRoboDataService){
   }
@@ -31,6 +33,7 @@ export class MapComponent implements OnInit{
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.findMe();
     this.listarRobos();
+    this.listarTipos();
   }
 
   setMapType(mapTypeId: string) {
@@ -99,9 +102,9 @@ export class MapComponent implements OnInit{
 
   onSubmit(roboForm: NgForm) {
     if (roboForm.value.$key == null)
-      this.infoRoboData.insertEmployee(roboForm.value);
+      this.infoRoboData.insertRobo(roboForm.value);
     else
-      this.infoRoboData.updateEmployee(roboForm.value);
+      this.infoRoboData.updateRobo(roboForm.value);
     this.resetForm(roboForm);
     //this.tostr.success('Submitted Succcessfully', 'Employee Register');
   }
@@ -112,7 +115,10 @@ export class MapComponent implements OnInit{
     this.infoRoboData.selectedRobo = {
       $key: null,
       latitud: '',
-      longitud: ''
+      longitud: '',
+      keyTipo:'',
+      keyUsuario:'',
+      observacion:''
     }
   }
 
@@ -129,5 +135,20 @@ export class MapComponent implements OnInit{
     });
     console.log('listar robos');
     console.log(this.roboList);
+  }
+
+  listarTipos(){
+    this.tipoList = [];
+    var x = this.infoRoboData.getTipos();
+    x.snapshotChanges().subscribe(item => {
+      
+      item.forEach(element => {
+        var y = element.payload.toJSON();
+        y["$key"] = element.key;
+        this.tipoList.push(y as Tipo);
+      });
+    });
+    console.log('listar tipos');
+    console.log(this.tipoList);
   }
 }
